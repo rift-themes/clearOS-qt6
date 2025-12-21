@@ -1,7 +1,7 @@
-import QtQuick 2.12
-import QtGraphicalEffects 1.0
-import QtQml.Models 2.10
-import QtMultimedia 5.9
+import QtQuick
+import Qt5Compat.GraphicalEffects
+import QtQml.Models
+import QtMultimedia
 import "Lists"
 import "utils.js" as Utils
 

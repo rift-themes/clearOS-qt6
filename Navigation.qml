@@ -1,6 +1,6 @@
-import QtQuick 2.12
-import QtGraphicalEffects 1.0
-import QtQml.Models 2.10
+import QtQuick
+import Qt5Compat.GraphicalEffects
+import QtQml.Models
 import "utils.js" as Utils
 
 FocusScope {

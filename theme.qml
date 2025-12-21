@@ -1,7 +1,7 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.11
+import QtQuick
+import QtQuick.Layouts
 import SortFilterProxyModel 0.2
-import QtMultimedia 5.9
+import QtMultimedia
 import "utils.js" as Utils
 
 FocusScope {

@@ -1,5 +1,5 @@
-import QtQuick 2.3
-import QtQuick.Layouts 1.11
+import QtQuick
+import QtQuick.Layouts
 import "Lists"
 
 FocusScope {
