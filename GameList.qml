@@ -66,6 +66,15 @@ id: root
         currentIndex: focus ? savedIndex : -1
         Component.onCompleted: positionViewAtIndex(savedIndex, ListView.Visible)
 
+        // Rift integration: when this list is focused, keep the SELECT-menu context game in sync
+        onCurrentIndexChanged: {
+            if (focus && currentIndex >= 0 && collectionData && currentIndex < collectionData.count) {
+                var g = collectionData.get(currentIndex)
+                var gid = g ? (g.id !== undefined ? g.id : g.gameId) : -1
+                if (gid > 0) Rift.setContextGameById(gid)
+            }
+        }
+
         model: collectionData
         delegate: GridItem {
             selected: ListView.isCurrentItem && collectionList.focus

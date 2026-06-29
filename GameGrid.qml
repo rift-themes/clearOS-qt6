@@ -73,8 +73,14 @@ id: root
         currentIndex: focus ? currentGameIndex : -1
         onCurrentIndexChanged: {
             // Ensure that the game index is never set to -1
-            if (currentIndex != -1)
+            if (currentIndex != -1) {
                 currentGameIndex = currentIndex;
+                // Rift integration: keep the SELECT-menu context game in sync with the focused game.
+                var g = (currentList && currentList.games && currentIndex < currentList.games.count)
+                        ? currentList.games.get(currentIndex) : null
+                var gid = g ? (g.id !== undefined ? g.id : g.gameId) : -1
+                if (gid > 0) Rift.setContextGameById(gid)
+            }
         }
 
         Component {
