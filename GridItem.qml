@@ -125,8 +125,8 @@ id: root
             asynchronous: true
             visible: false
         }
-        
-        
+
+
         Rectangle {
         id: mask
 
@@ -139,6 +139,18 @@ id: root
             anchors.fill: screenshot
             source: screenshot
             maskSource: mask
+        }
+
+        DownloadingSpinner {
+            anchors.fill: screenshot
+            gameData: root.gameData
+            targetImage: screenshot
+            sourceBinding: function() {
+                if (!root.gameData || !root.gameData.assets) return ""
+                var screens = root.gameData.assets.screenshots
+                return (screens && screens[0]) || ""
+            }
+            radius: vpx(15)
         }
 
         Rectangle {
